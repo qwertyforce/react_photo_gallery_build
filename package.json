@@ -106,10 +106,6 @@
   "main": "dist/react-photo-gallery.umd.js",
   "module": "dist/react-photo-gallery.esm.js",
   "name": "react-photo-gallery",
-  "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/neptunian/react-photo-gallery.git"
