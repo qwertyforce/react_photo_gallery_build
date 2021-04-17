@@ -1,1 +1,1 @@
-# react_photo_gallery_build
+build of https://github.com/qwertyforce/react-photo-gallery
