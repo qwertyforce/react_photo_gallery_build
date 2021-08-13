@@ -541,7 +541,7 @@
         // only do something if width changes
         var newWidth = entries[0].contentRect.width;
 
-        if (containerWidth !== newWidth) {
+        if (Math.abs(containerWidth - newWidth) > 15) {
           // put in an animation frame to stop "benign errors" from
           // ResizObserver https://stackoverflow.com/questions/49384120/resizeobserver-loop-limit-exceeded
           animationFrameID = window.requestAnimationFrame(function () {
