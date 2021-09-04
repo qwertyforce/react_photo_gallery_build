@@ -537,13 +537,24 @@
     var galleryEl = React.useRef(null);
     useIsomorphicLayoutEffect(function () {
       var animationFrameID = null;
+      var prev_width_6px = false;
       var observer = new ResizeObserver(function (entries) {
         // only do something if width changes
         var newWidth = entries[0].contentRect.width;
 
-        if (Math.abs(containerWidth - newWidth) > 15) {
-          // put in an animation frame to stop "benign errors" from
+        if (containerWidth !== newWidth) {
+          if (Math.abs(containerWidth - newWidth) === 6) {
+            if (prev_width_6px) {
+              return;
+            }
+
+            prev_width_6px = true;
+          } else {
+            prev_width_6px = false;
+          } // put in an animation frame to stop "benign errors" from
           // ResizObserver https://stackoverflow.com/questions/49384120/resizeobserver-loop-limit-exceeded
+
+
           animationFrameID = window.requestAnimationFrame(function () {
             setContainerWidth(Math.floor(newWidth));
           });
